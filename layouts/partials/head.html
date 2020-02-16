@@ -60,6 +60,11 @@
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 {{- end -}}
 
+<!-- default css -->
+{{ range .Site.Params.defaultCSS -}}
+<link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
+{{ end }}
+
 <!-- Styles -->
 <link href="{{ print "dist/" .Site.Data.even.assets.even.css | relURL }}" rel="stylesheet">
 {{ if .Site.Params.publicCDN.enable -}}
@@ -72,6 +77,8 @@
 {{ range .Site.Params.customCSS -}}
 <link rel="stylesheet" href="{{ "/css/" | relURL }}{{ . }}">
 {{ end }}
+<!-- asciidoctor donesn't support version > 5.0.0 (2020.2.16)-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 {{/* NOTE: These Hugo Internal Templates can be found starting at https://github.com/spf13/hugo/blob/master/tpl/tplimpl/template_embedded.go#L158 */}}
 {{- template "_internal/opengraph.html" . -}}

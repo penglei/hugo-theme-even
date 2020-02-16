@@ -19,6 +19,14 @@
     </p>
     {{- end }}
   {{- end }}
+  {{ if and $.Site.Params.gitRepo $.Site.Params.sourceGitBranch -}}
+  <p class="copyright-item">
+    <span class="item-title">Source</span>
+    <span class="item-content">
+        <a href="{{ $.Site.Params.gitRepo }}/blob/{{$.Site.Params.sourceGitBranch}}/content/{{.File.Path | safeURL}}" target="_blank">{{ .File.LogicalName | safeHTML}}</a>
+    </span>
+  </p>
+  {{- end }}
   {{ if or .Params.contentCopyright (and .Site.Params.contentCopyright (ne .Params.contentCopyright false)) -}}
   <p class="copyright-item">
     <span class="item-title">{{ T "license" }}</span>
