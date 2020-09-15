@@ -155,7 +155,8 @@
   hr {
     margin: 1rem 0;
     position: relative;
-    border-top: 2px dashed $theme-color;
+    //border-top: 1px dashed $theme-color;
+    border-top: $hr-border-top;
     border-bottom: none;
   }
 
